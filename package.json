@@ -1,0 +1,16 @@
+{
+  "name" : "SpaceCP_API",
+  "version" : "0.2",
+  "description" : "An API to communicate with a SpaceCP R11 server",
+  "keywords" : ["API","communication","web"],
+  "repository":"git://github.com/JamyDev/SpaceCP_API.git",
+  "author" : "Jamy Timmermans <me@jamy.be>",
+  "homepage" : "http://spacecp.net",
+  "engines": { "node": ">= 0.4.1"},
+  "main" : "./index.js",
+  "dependencies": {
+    "put": "*"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
