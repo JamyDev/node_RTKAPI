@@ -3,7 +3,7 @@ This module will allow you to connect to a SpaceCP server with the Node.JS runti
 This module was produced for the SpaceCP Panel currently being produced by XereoNet.
 
 ##Usage
-```javascript
+:::javascript
 var scpapi = require('SpaceCP_API');
 
 var server = scpapi.connect(host, port, username, password, salt, secure);
