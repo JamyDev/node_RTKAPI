@@ -1,25 +1,71 @@
 #SpaceCP API for Node.JS
 This module will allow you to connect to a SpaceCP server with the Node.JS runtime.
+
 This module was produced for the SpaceCP Panel currently being produced by XereoNet.
+
+##Version History
+
+0.5.1   Added re-registring of events after reconnect + Pushed to github
+
+0.4.6   Stuff fixed
+
+0.4.5   Added oldStatus to status event (BREAKING CHANGE!)
+
+0.4.4-4 README.MD fixes
+
+0.4.4-3 Some more fixes
+
+0.4.4-1 Think I fixed double event firing
+
+0.4.4   Streming fixes
+
+0.4.3   STREAM API
+
+0.4.2-1 getServerState
+
+0.4.2   Fixed most bugs
+
+0.4.1-4 Connection error event
+
+0.4.1-3 Reconnect event handlers
+
+0.4.1-2 Reconnect fix
+
+0.4.1-1 Statusses fix
+
+0.4.1   Statusses fix
+
+0.4.0   Multiple listener handler, more statusses
+
+0.3.*   Rewrite, Packet object, status event, disconnect reconnect, etc
+
+0.2.*   Initial Version
+
 
 ##Usage
 
+    var RTKServer = require('./index.js');
 
-var scpapi = require('SpaceCP_API');
+    info =  {
+        host: 'IP',
+        port: 25566,
+        username: 'user',
+        password: 'pass',
+        salt: '',
+        encrypted: false
+    };
 
-var server = scpapi.connect(host, port, username, password, salt, secure);
 
+    var s = new RTKServer(info, function () {
+        s.enablePersistence();
+        s.on('com.drdanick.rtoolkit.event.ConsoleInputEvent', test);
+        s.call('ping', {}, '', function (packet) {
+            console.log(packet);
+        });
 
-server.on('call', function (data) {
-	console.log(data);
-	/*
-	{ secure: false,
-  	sessionid: 1,
-  	method: 'testmethod',
-  	params: { testkey: 'testval' } }
-  */
-});
+        function test (e) {
+            console.log(e.data)
+        }
 
-server.call('testmethod', {testkey: 'testval'});
-
-test
+        s.off('com.drdanick.rtoolkit.event.ConsoleInputEvent');
+    });

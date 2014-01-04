@@ -1,15 +1,26 @@
 {
-  "name" : "SpaceCP_API",
-  "version" : "0.2",
-  "description" : "An API to communicate with a SpaceCP R11 server",
-  "keywords" : ["API","communication","web"],
-  "repository":"git://github.com/JamyDev/SpaceCP_API.git",
-  "author" : "Jamy Timmermans <me@jamy.be>",
-  "homepage" : "http://spacecp.net",
-  "engines": { "node": ">= 0.4.1"},
-  "main" : "./index.js",
+  "name": "rtkapi",
+  "version": "0.5.1",
+  "description": "An API to communicate with an R11 server",
+  "keywords": [
+    "API",
+    "communication",
+    "web",
+    "RTK",
+    "RemoteToolkit",
+    "Minecraft",
+    "Bukkit"
+  ],
+  "repository": "git://github.com/JamyDev/node_RTKAPI.git",
+  "author": "Jamy Timmermans <me@jamy.be>",
+  "homepage": "http://spacecp.net",
+  "engines": {
+    "node": ">= 0.4.1"
+  },
+  "main": "./index.js",
   "dependencies": {
-    "put": "*"
+    "put": "0.0.6",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {},
   "scripts": {}
