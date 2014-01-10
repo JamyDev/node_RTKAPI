@@ -5,6 +5,8 @@ This module was produced for the SpaceCP Panel currently being produced by Xereo
 
 ##Version History
 
+0.5.2   Fixed reconnect
+
 0.5.1   Added re-registring of events after reconnect + Pushed to github
 
 0.4.6   Stuff fixed
