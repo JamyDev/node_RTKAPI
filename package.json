@@ -1,6 +1,6 @@
 {
   "name": "rtkapi",
-  "version": "0.5.2-2",
+  "version": "0.5.3",
   "description": "An API to communicate with an R11 server",
   "keywords": [
     "API",
@@ -22,6 +22,8 @@
     "put": "0.0.6",
     "underscore": "~1.5.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+      "nodeunit": "*"
+    },
   "scripts": {}
 }
