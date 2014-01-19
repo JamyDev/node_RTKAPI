@@ -5,6 +5,8 @@ This module was produced for the SpaceCP Panel currently being produced by Xereo
 
 ##Version History
 
+0.5.3-1 Bugs gallore
+
 0.5.3   Refactored a lot of code, started adding unit tests
 
 0.5.2-1 Fixed double firing of connect callback
