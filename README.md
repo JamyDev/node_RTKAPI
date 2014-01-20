@@ -5,6 +5,8 @@ This module was produced for the SpaceCP Panel currently being produced by Xereo
 
 ##Version History
 
+0.5.4   Fixing some more major bugs bunny's
+
 0.5.3-3 That was not a bug of my new code, damn :P
 
 0.5.3-2 Reverted back until I can find the actual fix
