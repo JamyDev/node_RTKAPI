@@ -5,6 +5,8 @@ This module was produced for the SpaceCP Panel currently being produced by Xereo
 
 ##Version History
 
+0.5.6   try-catches are not how you're supposed to do it
+
 0.5.5   Tramsforms^2
 
 0.5.4   Fixing some more major bugs bunny's

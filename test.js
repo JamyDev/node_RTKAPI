@@ -1,6 +1,6 @@
 var RTKServer = require('./index.js');
 
-info =  {
+var info =  {
     host: 'localhost',
     port: 25566,
     username: 'user',
@@ -14,7 +14,7 @@ var s = new RTKServer(info, function () {
         console.log(pack.data.data);
     }); // Should enable the event
 
-    s.on('com.drdanick.rtoolkit.event.WrapperConsoleOutputEvent', 'test', test); // Should not re-enable the event
+    //s.on('com.drdanick.rtoolkit.event.WrapperConsoleOutputEvent', 'test', test); // Should not re-enable the event
     s.on('status', 'test1', function (s) {
         console.log(s);
     });
