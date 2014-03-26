@@ -5,6 +5,8 @@ This module was produced for the SpaceCP Panel currently being produced by Xereo
 
 ##Version History
 
+0.6.1   SpacecpLoadedEvent
+
 0.5.6-2 Once should now work
 
 0.5.6-1 Fixed access buffer beyond length
