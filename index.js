@@ -18,7 +18,7 @@
  */
 
 RTKServer = require('./lib/rtkserver.js');
-RTKConnection = require('./lib/rtkconnection.js');
+RTKConnection = require('./lib/rtkconnection.js').RTKConnection;
 
-module.exports = RTKServer;
-module.exports = RTKConnection;
+//module.exports = RTKServer;
+module.exports.RTKConnection = RTKConnection;
