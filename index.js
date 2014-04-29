@@ -12,13 +12,11 @@
  *
  *
  *
- *  @author: drdanick (The API)
  *  @author: JamyDev  (NodeJS API module)
+ *  @author: drdanick (The API)
  *
  */
 
-RTKServer = require('./lib/rtkserver.js');
 RTKConnection = require('./lib/rtkconnection.js').RTKConnection;
 
-//module.exports = RTKServer;
-module.exports.RTKConnection = RTKConnection;
+module.exports = RTKConnection;
