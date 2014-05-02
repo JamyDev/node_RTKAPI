@@ -5,6 +5,8 @@ This module was produced for the SpaceCP Panel currently being produced by Xereo
 
 ##Version History
 
+0.6.9-7 Fixed a lot of bugs, including the eventEmitter leak
+
 0.6.9   Big refactor, will up to 0.7 or 1.0 once all bugs are out
 
 0.6.1   SpacecpLoadedEvent
