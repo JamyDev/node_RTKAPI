@@ -108,6 +108,19 @@ exports.registerEventsOnOnce = function (test) {
     setTimeout(test.done);
 };
 
+exports.secondEE = function (test) {
+    test.expect(1);
+    var sEE = new RTKEventEmitter();
+    this.ee.on("herp", 'token', function () {
+        test.fail(true);
+    });
+    sEE.on('herp', 'token', function () {
+        test.ok(true);
+        test.done();
+    });
+    sEE.emit('herp');
+};
+
 
 
 
