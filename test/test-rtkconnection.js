@@ -1,22 +1,25 @@
 var RTKConnection = require("../lib/rtkconnection.js").RTKConnection;
+var RTKTransform = require("../lib/transform.js").RTKTransform;
 var Packet = require("../lib/packet.js").Packet;
 var net = require('net');
 
 exports.setUp = function (callback) {
 	var ex = this;
+	ex.transform = null;
 	ex.server = net.createServer(function (con) {
-    	con.on('data', function (d) {
-    		var p = Packet.parse(d);
+		ex.transform = new RTKTransform();
+		con.pipe(ex.transform);
+    	ex.transform.on('data', function (p) {
     		if (p.method === 'enablePersistence')
     			con.write((new Packet(false, "0000000000000000000000000000000000000000000000000000000000000000", p.sessionID, "apiNotice", {}, "persistenceEnabled", null, 0x01, false)).compile());
     		else if (p.method === "getServerState")
     			con.write((new Packet(false, "0000000000000000000000000000000000000000000000000000000000000000", p.sessionID, "apiNotice", {}, JSON.stringify({state: "RUNNING"}), null, 0x01, false)).compile());
     		else
-    			console.log("unknownp", p)
-    		console.log(d)
-    	})
+    			console.log("unknownp", p);
+    	});
 		
 	});
+	
 	ex.server.listen(25566);
 	callback();
 
@@ -29,6 +32,7 @@ exports.connectedEvent = function (test) {
 	});
 
 	$api.on("connected", 'api', function () {
+		$api.removeAllListeners();
 		test.ok(true);
 		test.done();
 	});
