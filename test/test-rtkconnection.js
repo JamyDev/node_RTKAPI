@@ -22,14 +22,14 @@ exports.setUp = function (callback) {
 		
 	});
 	
-	ex.server.listen(255667);
+	ex.server.listen(25566);
 	callback();
 
 };
 
 exports.connectedEvent = function (test) {
 	test.expect(1);
-	var $api = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 
 	});
 
@@ -40,9 +40,19 @@ exports.connectedEvent = function (test) {
 	});
 };
 
+// exports.unexpectedQuit = function (test) {
+// 	test.expect(1);
+// 	var ex = this;
+// 	var $api = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
+// 		ex.server.close();
+// 		test.ok(true);
+// 	});
+	
+// };
+
 exports.statusChange = function (test) {
 	test.expect(1);
-	var $api = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api.enablePersistence();
 	});
 
@@ -79,7 +89,7 @@ exports.reconnections = function (test) {
 // exports.eventListeners = function (test) {
 // 	test.expect(1);
 // 	setInterval(console.log, 2000, 1);
-// 	var $api = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+// 	var $api = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 // 		$api.enablePersistence();
 		
 // 		$api.on("com.drdanick.rtoolkit.event.WrapperConsoleOutputEvent", "asdf", function (con) {
@@ -96,31 +106,31 @@ exports.reconnections = function (test) {
 // }
 
 exports.multipleServers = function  (test) {
-	var $api1 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api1 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api1.enablePersistence();
 		test.ok("Done1")
 	});
-	var $api2 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api2 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api2.enablePersistence();
 		test.ok("Done2")
 	});
-	var $api3 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api3 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api3.enablePersistence();
 		test.ok("Done3")
 	});
-	var $api4 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api4 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api4.enablePersistence();
 		test.ok("Done4")
 	});
-	var $api5 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api5 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api5.enablePersistence();
 		test.ok("Done5")
 	});
-	var $api6 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api6 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api6.enablePersistence();
 		test.ok("Done6")
 	});
-	var $api7 = new RTKConnection({host: "localhost", port: 255667, username: "user", password: "password", salt: "", secure: false}, function () {
+	var $api7 = new RTKConnection({host: "localhost", port: 25566, username: "user", password: "password", salt: "", secure: false}, function () {
 		$api7.enablePersistence();
 		test.ok("Done7")
 		test.done();
@@ -129,7 +139,8 @@ exports.multipleServers = function  (test) {
 
 exports.tearDown = function (callback) {
 	this.server.close();
-	this.transform.removeAllListeners();
+	if (this.transform)
+		this.transform.removeAllListeners();
 	callback();
 }
 
