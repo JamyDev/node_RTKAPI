@@ -1,6 +1,6 @@
 {
   "name": "rtkapi",
-  "version": "0.6.11-6",
+  "version": "0.6.11-9",
   "description": "An API to communicate with an R11 server",
   "keywords": [
     "API",
